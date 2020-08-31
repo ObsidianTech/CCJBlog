@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Prismic from 'prismic-javascript';
+import { Date, Link, RichText } from 'prismic-reactjs';
 
 function App() {
   return (
