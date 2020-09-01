@@ -4,13 +4,11 @@ module.exports = {
     'jsx',
     'json',
     'vue',
-    'ts',
-    'tsx',
   ],
   transform: {
     '^.+\\.vue$': 'vue-jest',
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
-    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.jsx?$': 'babel-jest',
   },
   transformIgnorePatterns: [
     '/node_modules/',
@@ -29,9 +27,4 @@ module.exports = {
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
   ],
-  globals: {
-    'ts-jest': {
-      babelConfig: true,
-    },
-  },
 };
