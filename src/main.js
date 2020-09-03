@@ -6,12 +6,9 @@ import router from './router';
 import store from './store';
 import './registerServiceWorker';
 
-const token = process.env.VUE_APP_BLOG_TOKEN;
-
 Vue.use(PrismicVue, {
   endpoint: window.prismic.endpoint,
   linkResolver,
-  apiOptions: { token },
 });
 
 Vue.config.productionTip = false;

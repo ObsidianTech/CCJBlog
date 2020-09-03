@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>{{ fields.title }}</h1>
+    <prismic-rich-text v-if="fields.title" :field="fields.title" wrapper="div"/>
     <prismic-image :field="fields.logo"/>
-    <prismic-rich-text :field="fields.richContent"/>
+    <prismic-rich-text v-if="fields.desc" wrapper="div" :field="fields.desc"/>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
       fields: {
         title: null,
         logo: null,
-        richContent: null,
+        desc: null,
       },
     };
   },
@@ -21,10 +21,9 @@ export default {
     getContent() {
       this.$prismic.client.getSingle('blog_home')
         .then((document) => {
-          console.log(document);
-          this.fields.title = document.data.title;
-          this.fields.logo = document.data.logo;
-          this.fields.richContent = document.data.rich_content;
+          this.fields.title = document.data.blog_title;
+          this.fields.logo = document.data.home_image;
+          this.fields.desc = document.data.description;
         });
     },
   },
